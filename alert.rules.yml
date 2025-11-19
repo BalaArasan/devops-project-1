@@ -1,0 +1,11 @@
+groups:
+  - name: react-app-alerts
+    rules:
+      - alert: AppDown
+        expr: up{job="react_app"} == 0
+        for: 20s
+        labels:
+          severity: critical
+        annotations:
+          summary: "React App is DOWN"
+          description: "The container devops-react-app is not responding"
